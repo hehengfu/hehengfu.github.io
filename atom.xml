@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-12-12T06:40:06.323Z</updated>
+  <updated>2021-12-12T09:35:57.311Z</updated>
   <id>http://example.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
@@ -16,14 +16,14 @@
     <link href="http://example.com/2021/12/12/%E4%BD%95%E6%81%92%E7%94%AB%E5%8D%9A%E5%AE%A2%E5%BC%80%E9%80%9A%E4%BA%86/"/>
     <id>http://example.com/2021/12/12/%E4%BD%95%E6%81%92%E7%94%AB%E5%8D%9A%E5%AE%A2%E5%BC%80%E9%80%9A%E4%BA%86/</id>
     <published>2021-12-12T05:28:25.000Z</published>
-    <updated>2021-12-12T06:40:06.323Z</updated>
+    <updated>2021-12-12T09:35:57.311Z</updated>
     
-    <content type="html"><![CDATA[<p>今天，何恒甫的个人博客开通了！</p>]]></content>
+    <content type="html"><![CDATA[<p>今天，何恒甫的个人博客开通了！<br>img src=”D:\Blog\web_hexo\source_posts\49.JPG” </p>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;今天，何恒甫的个人博客开通了！&lt;/p&gt;
+    <summary type="html">&lt;p&gt;今天，何恒甫的个人博客开通了！&lt;br&gt;img src=”D:\Blog\web_hexo\source_posts\49.JPG” &lt;/p&gt;
 </summary>
       
     
