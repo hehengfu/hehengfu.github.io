@@ -1,33 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>博客正式开通</title>
-    <url>/2021/12/12/%E5%8D%9A%E5%AE%A2%E5%BC%80%E9%80%9A/</url>
-    <content><![CDATA[<p>欢迎访问我的<a href="https://hehengfu.github.io/">博客</a>!<br><img src="/images/49.JPG"></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2021/12/12/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/zh-cn/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/zh-cn/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/zh-cn/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span>
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>CRC8的校验原理及代码实现</title>
     <url>/2021/12/19/CRC8%E7%9A%84%E6%A0%A1%E9%AA%8C%E5%8E%9F%E7%90%86%E5%8F%8A%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/</url>
-    <content><![CDATA[<p>###CRC算法简介<br>循环冗余校验（Cyclic Redundancy Check， CRC）是一种根据网络数据包或计算机文件等数据产生简短固定位数校验码的一种信道编码技术，主要用来检测或校验数据传输或者保存后可能出现的错误。它是利用除法及余数的原理来作错误侦测的。</p>
+    <content><![CDATA[<h3 id="CRC算法简介"><a href="#CRC算法简介" class="headerlink" title="CRC算法简介"></a>CRC算法简介</h3><p>循环冗余校验（Cyclic Redundancy Check， CRC）是一种根据网络数据包或计算机文件等数据产生简短固定位数校验码的一种信道编码技术，主要用来检测或校验数据传输或者保存后可能出现的错误。它是利用除法及余数的原理来作错误侦测的。</p>
 <h3 id="CRC参数模型"><a href="#CRC参数模型" class="headerlink" title="CRC参数模型"></a>CRC参数模型</h3><p>CRC参数模型应该包含以下信息：WIDTH，POLY，INIT，REFIN，REFOUT，XOROUT</p>
 <pre class=" language-bash"><code class="language-bash">WIDTH：宽度，即生成的CRC数据位宽，如CRC-8，生成的CRC为8位
 POLY：十六进制多项式，省略最高位1，如 x8 + x2 + x + 1，二进制为1 0000 0111，省略最高位1，转换为十六进制为0x07。
@@ -37,8 +13,7 @@ REFOUT：true或false，运算完成之后，得到的CRC值是否进行翻转�
 XOROUT：计算结果与此参数进行异或运算后得到最终的CRC值，和WIDTH位宽一致。
 </code></pre>
 <p>通常如果只给了一个多项式，其他的没有说明则：INIT=0x00，REFIN=false，REFOUT=false，XOROUT=0x00。</p>
-<h3 id="CRC计算"><a href="#CRC计算" class="headerlink" title="CRC计算"></a>CRC计算</h3><p>####计算方式一</p>
-<pre class=" language-bash"><code class="language-bash">POLY <span class="token operator">=</span> 0x31 <span class="token operator">=</span> 0011 0001<span class="token punctuation">(</span>最高位1已经省略<span class="token punctuation">)</span>
+<h3 id="CRC计算"><a href="#CRC计算" class="headerlink" title="CRC计算"></a>CRC计算</h3><h4 id="计算方式一"><a href="#计算方式一" class="headerlink" title="计算方式一"></a>计算方式一</h4><pre class=" language-bash"><code class="language-bash">POLY <span class="token operator">=</span> 0x31 <span class="token operator">=</span> 0011 0001<span class="token punctuation">(</span>最高位1已经省略<span class="token punctuation">)</span>
 INIT <span class="token operator">=</span> 0x00
 XOROUT <span class="token operator">=</span> 0x00
 REFIN <span class="token operator">=</span> TRUE
@@ -56,8 +31,7 @@ REFIN为TRUE，需要先对原始数据进行翻转：0011 0100 <span class="tok
 因为REFOUT为TRUE，对结果进行翻转得到最终的CRC-8值：1101 1111 <span class="token operator">=</span> 0xDF
 数据+CRC：0011 0100 1101 1111 <span class="token operator">=</span> 34DF，相当于原始数据左移8位+余数。
 </code></pre>
-<p>####计算方式二</p>
-<pre class=" language-bash"><code class="language-bash">POLY <span class="token operator">=</span> 0x31 <span class="token operator">=</span> 0011 0001<span class="token punctuation">(</span>最高位1已经省略<span class="token punctuation">)</span>
+<h4 id="计算方式二"><a href="#计算方式二" class="headerlink" title="计算方式二"></a>计算方式二</h4><pre class=" language-bash"><code class="language-bash">POLY <span class="token operator">=</span> 0x31 <span class="token operator">=</span> 0011 0001<span class="token punctuation">(</span>最高位1已经省略<span class="token punctuation">)</span>
 INIT <span class="token operator">=</span> 0x00
 XOROUT <span class="token operator">=</span> 0x00
 REFIN <span class="token operator">=</span> FALSE
@@ -89,31 +63,31 @@ static uint8 Crc_lCommonCalculateCRC8Runtime
   const uint8 Crc_StartValue8,
   const uint8 Polynomial_8bit
 <span class="token punctuation">)</span>
-<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+｛
   uint32 LoopCounter<span class="token punctuation">;</span>
   uint8 MessageBit<span class="token punctuation">;</span>
   uint8 StartValue8 <span class="token operator">=</span> Crc_StartValue8<span class="token punctuation">;</span>
   <span class="token keyword">for</span> <span class="token punctuation">(</span>LoopCounter <span class="token operator">=</span> CRC_ZERO_U<span class="token punctuation">;</span> LoopCounter <span class="token operator">&lt;</span> Crc_Length<span class="token punctuation">;</span>
        LoopCounter++<span class="token punctuation">)</span>
-  <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+  ｛
     StartValue8 ^<span class="token operator">=</span> Crc_DataPtr<span class="token punctuation">[</span>LoopCounter<span class="token punctuation">]</span><span class="token punctuation">;</span>
     for<span class="token punctuation">(</span>MessageBit <span class="token operator">=</span> CRC_BYTELENGTH_U<span class="token punctuation">;</span> MessageBit <span class="token operator">></span> CRC_ZERO_U<span class="token punctuation">;</span>
         MessageBit--<span class="token punctuation">)</span>
-    <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
-      if<span class="token punctuation">((</span> StartValue8 <span class="token operator">&amp;</span> CRC_CRC8_MSB <span class="token punctuation">)</span> <span class="token operator">==</span> CRC_CRC8_MSB<span class="token punctuation">)</span>
-      <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
-        StartValue8 <span class="token operator">=</span><span class="token variable"><span class="token punctuation">((</span>uint8<span class="token punctuation">)</span><span class="token punctuation">((</span>uint8<span class="token punctuation">)</span>StartValue8 <span class="token operator">&lt;&lt;</span> CRC_ONE_U<span class="token punctuation">))</span></span>^ Polynomial_8bit<span class="token punctuation">;</span>
-      <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+   ｛
+      <span class="token keyword">if</span><span class="token variable"><span class="token punctuation">((</span> StartValue8 <span class="token operator">&amp;</span> CRC_CRC8_MSB <span class="token punctuation">)</span> <span class="token operator">==</span> CRC_CRC8_MSB<span class="token punctuation">)</span>
+      ｛
+        StartValue8 <span class="token operator">=</span><span class="token punctuation">((</span>uint8<span class="token punctuation">)</span><span class="token punctuation">((</span>uint8<span class="token punctuation">)</span>StartValue8 <span class="token operator">&lt;&lt;</span> CRC_ONE_U<span class="token punctuation">))</span></span>^ Polynomial_8bit<span class="token punctuation">;</span>
+      ｝
       <span class="token keyword">else</span>
-      <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+     ｛
         StartValue8 <span class="token operator">=</span><span class="token punctuation">(</span>uint8<span class="token punctuation">)</span><span class="token punctuation">((</span>uint8<span class="token punctuation">)</span>StartValue8 <span class="token operator">&lt;&lt;</span> CRC_ONE_U<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+      ｝
 
-    <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+    ｝
 
-  <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+  ｝
   <span class="token keyword">return</span> StartValue8<span class="token punctuation">;</span>
-<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+｝
 </code></pre>
 <h3 id="查表方式"><a href="#查表方式" class="headerlink" title="查表方式"></a>查表方式</h3><p>查表的目的是节省MCU计算CRC的时间，事先计算好0至255的CRC值存入数组（不同的POLY算出来的不一样）</p>
 <pre class=" language-bash"><code class="language-bash">static uint8 Crc_lCalculateCRC8Table
@@ -122,7 +96,7 @@ static uint8 Crc_lCommonCalculateCRC8Runtime
   const uint32 Crc_Length,
   const uint8 Crc_StartValue8
 <span class="token punctuation">)</span>
-<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+｛
   uint32 LoopCounter <span class="token punctuation">;</span>
   uint8 CompareData <span class="token punctuation">;</span>
   uint8 StartValue8 <span class="token operator">=</span> Crc_StartValue8<span class="token punctuation">;</span>
@@ -131,13 +105,13 @@ static uint8 Crc_lCommonCalculateCRC8Runtime
 
   for<span class="token punctuation">(</span>LoopCounter <span class="token operator">=</span> CRC_ZERO_U<span class="token punctuation">;</span> LoopCounter <span class="token operator">&lt;</span> Crc_Length<span class="token punctuation">;</span>
       LoopCounter++<span class="token punctuation">)</span>
-  <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;</span>
+  ｛
     CompareData <span class="token operator">=</span> Crc_DataPtr<span class="token punctuation">[</span>LoopCounter<span class="token punctuation">]</span> ^ StartValue8<span class="token punctuation">;</span>
     StartValue8 <span class="token operator">=</span> Crc_Table8<span class="token punctuation">[</span>CompareData<span class="token punctuation">]</span> ^<span class="token punctuation">(</span>uint8<span class="token punctuation">)</span><span class="token variable"><span class="token punctuation">((</span>uint16<span class="token punctuation">)</span><span class="token punctuation">((</span>uint16<span class="token punctuation">)</span>StartValue8 <span class="token operator">&lt;&lt;</span> CRC_BYTELENGTH_U<span class="token punctuation">))</span></span><span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+  ｝
   StartValue8 <span class="token operator">=</span> CRC_CRC8_XOR_VALUE ^ StartValue8<span class="token punctuation">;</span>
   <span class="token keyword">return</span> StartValue8<span class="token punctuation">;</span>
-<span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#125;</span>
+｝
 </code></pre>
 ]]></content>
       <categories>
@@ -146,5 +120,29 @@ static uint8 Crc_lCommonCalculateCRC8Runtime
       <tags>
         <tag>CRC</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/12/12/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/zh-cn/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/zh-cn/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/zh-cn/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span>
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>博客正式开通</title>
+    <url>/2021/12/12/%E5%8D%9A%E5%AE%A2%E5%BC%80%E9%80%9A/</url>
+    <content><![CDATA[<p>欢迎访问我的<a href="https://hehengfu.github.io/">博客</a>!<br><img src="/images/49.JPG"></p>
+]]></content>
   </entry>
 </search>
