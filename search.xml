@@ -141,4 +141,16 @@ static uint8 Crc_lCommonCalculateCRC8Runtime
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
   </entry>
+  <entry>
+    <title>ETAS生成RTE时需使用的命令</title>
+    <url>/blog/2022/08/07/ETAS%E7%94%9F%E6%88%90RTE%E6%97%B6%E9%9C%80%E4%BD%BF%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h3 id="ETAS生成RTE时需使用的命令"><a href="#ETAS生成RTE时需使用的命令" class="headerlink" title="ETAS生成RTE时需使用的命令"></a>ETAS生成RTE时需使用的命令</h3><p>-nts -ur=2 –os-define-osenv=RTAOS40 –exclusive-area-optimization=disable –os-output-param=changed –use-partition-sections=on –client-server-global-optimization=off –deviate-bsw-any-partition=1 –deviate-split-swci-support=1 –samples=memmap </p>
+]]></content>
+      <categories>
+        <category>ETAS</category>
+      </categories>
+      <tags>
+        <tag>ETAS</tag>
+      </tags>
+  </entry>
 </search>
