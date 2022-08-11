@@ -29,7 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="何恒甫的博客" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -372,39 +373,39 @@
             <div id="articleContent">
                 <h3 id="CRC算法简介"><a href="#CRC算法简介" class="headerlink" title="CRC算法简介"></a>CRC算法简介</h3><p>循环冗余校验（Cyclic Redundancy Check， CRC）是一种根据网络数据包或计算机文件等数据产生简短固定位数校验码的一种信道编码技术，主要用来检测或校验数据传输或者保存后可能出现的错误。它是利用除法及余数的原理来作错误侦测的。</p>
 <h3 id="CRC参数模型"><a href="#CRC参数模型" class="headerlink" title="CRC参数模型"></a>CRC参数模型</h3><p>CRC参数模型应该包含以下信息：WIDTH，POLY，INIT，REFIN，REFOUT，XOROUT</p>
-<pre><code class="bash">WIDTH：宽度，即生成的CRC数据位宽，如CRC8，生成的CRC为8位
+<pre class=" language-bash"><code class="language-bash">WIDTH：宽度，即生成的CRC数据位宽，如CRC8，生成的CRC为8位
 POLY：十六进制多项式，省略最高位1，如 x8 + x2 + x + 1，二进制为 1 0000 0111，省略最高位1，转换为十六进制为0x07。
 INIT：CRC初始值，和WIDTH位宽一致。
-REFIN：true或false，在进行计算之前，原始数据是否翻转，如原始数据：0x34 = 0011 0100，如果REFIN为true，进行翻转之后为 0010 1100 = 0x2c
-REFOUT：true或false，运算完成之后，得到的CRC值是否进行翻转，如计算得到的CRC值：0x97 = 1001 0111，如果REFOUT为true，进行翻转之后为 1110 1001 = 0xE9。
+REFIN：true或false，在进行计算之前，原始数据是否翻转，如原始数据：0x34 <span class="token operator">=</span> 0011 0100，如果REFIN为true，进行翻转之后为 0010 1100 <span class="token operator">=</span> 0x2c
+REFOUT：true或false，运算完成之后，得到的CRC值是否进行翻转，如计算得到的CRC值：0x97 <span class="token operator">=</span> 1001 0111，如果REFOUT为true，进行翻转之后为 1110 1001 <span class="token operator">=</span> 0xE9。
 XOROUT：计算结果与此参数进行异或运算后得到最终的CRC值，和WIDTH位宽一致。
 </code></pre>
 <p><strong>通常如果只给了一个多项式，其他的没有说明则：INIT=0x00，REFIN=false，REFOUT=false，XOROUT=0x00。</strong></p>
-<h3 id="CRC计算步骤"><a href="#CRC计算步骤" class="headerlink" title="CRC计算步骤"></a>CRC计算步骤</h3><h4 id="计算方式一"><a href="#计算方式一" class="headerlink" title="计算方式一"></a>计算方式一</h4><pre><code class="bash">POLY = 0x31 = 0011 0001(最高位1已经省略)
-INIT = 0x00
-XOROUT = 0x00
-REFIN = TRUE
-REFOUT = TRUE
+<h3 id="CRC计算步骤"><a href="#CRC计算步骤" class="headerlink" title="CRC计算步骤"></a>CRC计算步骤</h3><h4 id="计算方式一"><a href="#计算方式一" class="headerlink" title="计算方式一"></a>计算方式一</h4><pre class=" language-bash"><code class="language-bash">POLY <span class="token operator">=</span> 0x31 <span class="token operator">=</span> 0011 0001<span class="token punctuation">(</span>最高位1已经省略<span class="token punctuation">)</span>
+INIT <span class="token operator">=</span> 0x00
+XOROUT <span class="token operator">=</span> 0x00
+REFIN <span class="token operator">=</span> TRUE
+REFOUT <span class="token operator">=</span> TRUE
 </code></pre>
-<pre><code class="bash">1. 原始数据 = 0x34 = 0011 0100，多项式 = 0x31 = 1 0011 0001
-2. INIT = 0x00，原始数据高8位和初始值进行异或运算保持不变
+<pre class=" language-bash"><code class="language-bash">1. 原始数据 <span class="token operator">=</span> 0x34 <span class="token operator">=</span> 0011 0100，多项式 <span class="token operator">=</span> 0x31 <span class="token operator">=</span> 1 0011 0001
+2. INIT <span class="token operator">=</span> 0x00，原始数据高8位和初始值进行异或运算保持不变
 3. REFIN为TRUE，需要先对原始数据进行翻转： 0011 0100 翻转后得到 0010 1100
 4. 原始数据左移8位，即后面补8个0：0010 1100 0000 0000
 5. 把处理之后的数据和多项式进行模2除法，求得余数
 6. 原始数据： 0010 1100 0000 0000,与多项式进行计算是从最高位为1的开始,所以实际需要参与运算的数据为 10 1100 0000 0000
 7. 多项式：1 0011 0001
-8. 模2除法(余数其实是异或运算,只要被除数首位非0,商就是1)取余数低8位： 1111 1011
-9. 与XOROUT进行异或， 1111 1011 xor 0000 0000 = 1111 1011 
-10. 因为REFOUT为TRUE，对结果进行翻转得到最终的CRC8值： 1101 1111 = 0xDF
-11. 数据拼接CRC得到 0011 0100 1101 1111 = 34DF，相当于原始数据左移8位或上余数。
+8. 模2除法<span class="token punctuation">(</span>余数其实是异或运算,只要被除数首位非0,商就是1<span class="token punctuation">)</span>取余数低8位： 1111 1011
+9. 与XOROUT进行异或， 1111 1011 xor 0000 0000 <span class="token operator">=</span> 1111 1011 
+10. 因为REFOUT为TRUE，对结果进行翻转得到最终的CRC8值： 1101 1111 <span class="token operator">=</span> 0xDF
+11. 数据拼接CRC得到 0011 0100 1101 1111 <span class="token operator">=</span> 34DF，相当于原始数据左移8位或上余数。
 </code></pre>
-<h4 id="计算方式二"><a href="#计算方式二" class="headerlink" title="计算方式二"></a>计算方式二</h4><pre><code class="bash">POLY = 0x31 = 0011 0001(最高位1已经省略)
-INIT = 0x00
-XOROUT = 0x00
-REFIN = FALSE
-REFOUT = FALSE
+<h4 id="计算方式二"><a href="#计算方式二" class="headerlink" title="计算方式二"></a>计算方式二</h4><pre class=" language-bash"><code class="language-bash">POLY <span class="token operator">=</span> 0x31 <span class="token operator">=</span> 0011 0001<span class="token punctuation">(</span>最高位1已经省略<span class="token punctuation">)</span>
+INIT <span class="token operator">=</span> 0x00
+XOROUT <span class="token operator">=</span> 0x00
+REFIN <span class="token operator">=</span> FALSE
+REFOUT <span class="token operator">=</span> FALSE
 </code></pre>
-<pre><code class="bash">1. 原始数据 = 0x34 = 0011 0100，多项式 = 0x31 = 0011 0001
+<pre class=" language-bash"><code class="language-bash">1. 原始数据 <span class="token operator">=</span> 0x34 <span class="token operator">=</span> 0011 0100，多项式 <span class="token operator">=</span> 0x31 <span class="token operator">=</span> 0011 0001
 2. 原始数据的二进制为 0011 0100
 3. 原始数据移位到最高位的值是1,即 1101 0000
 4. 原始数据再左移一位，因为左移出去的最高位是1,下一步需要与多项式异或运算,左移以后右边补0,即 1010 0000
@@ -420,66 +421,66 @@ REFOUT = FALSE
 14. 多项式为 0011 0001
 15. 异或的结果为 0000 0001
 </code></pre>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><h4 id="直接运算方式求CRC"><a href="#直接运算方式求CRC" class="headerlink" title="直接运算方式求CRC"></a>直接运算方式求CRC</h4><pre><code class="bash">#define CRC_ZERO_U                  (0U)
-#define CRC_BYTELENGTH_U             (8U)
-#define CRC_CRC8_MSB                ((uint8)0x80)
-#define CRC_ONE_U                   (1U)
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><h4 id="直接运算方式求CRC"><a href="#直接运算方式求CRC" class="headerlink" title="直接运算方式求CRC"></a>直接运算方式求CRC</h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#define CRC_ZERO_U                  (0U)</span>
+<span class="token comment" spellcheck="true">#define CRC_BYTELENGTH_U             (8U)</span>
+<span class="token comment" spellcheck="true">#define CRC_CRC8_MSB                ((uint8)0x80)</span>
+<span class="token comment" spellcheck="true">#define CRC_ONE_U                   (1U)</span>
 
 static uint8 Crc_lCommonCalculateCRC8Runtime
-(
+<span class="token punctuation">(</span>
   const uint8* const Crc_DataPtr,
   const uint32 Crc_Length,
   const uint8 Crc_StartValue8,
   const uint8 Polynomial_8bit
-)
+<span class="token punctuation">)</span>
 ｛
-  uint32 LoopCounter;
-  uint8 MessageBit;
-  uint8 StartValue8 = Crc_StartValue8;
-  for (LoopCounter = CRC_ZERO_U; LoopCounter &lt; Crc_Length;
-       LoopCounter++)
+  uint32 LoopCounter<span class="token punctuation">;</span>
+  uint8 MessageBit<span class="token punctuation">;</span>
+  uint8 StartValue8 <span class="token operator">=</span> Crc_StartValue8<span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span>LoopCounter <span class="token operator">=</span> CRC_ZERO_U<span class="token punctuation">;</span> LoopCounter <span class="token operator">&lt;</span> Crc_Length<span class="token punctuation">;</span>
+       LoopCounter++<span class="token punctuation">)</span>
   ｛
-    StartValue8 ^= Crc_DataPtr[LoopCounter];
-    for(MessageBit = CRC_BYTELENGTH_U; MessageBit &gt; CRC_ZERO_U;
-        MessageBit--)
+    StartValue8 ^<span class="token operator">=</span> Crc_DataPtr<span class="token punctuation">[</span>LoopCounter<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    for<span class="token punctuation">(</span>MessageBit <span class="token operator">=</span> CRC_BYTELENGTH_U<span class="token punctuation">;</span> MessageBit <span class="token operator">></span> CRC_ZERO_U<span class="token punctuation">;</span>
+        MessageBit--<span class="token punctuation">)</span>
    ｛
-      if(( StartValue8 &amp; CRC_CRC8_MSB ) == CRC_CRC8_MSB)
+      <span class="token keyword">if</span><span class="token variable"><span class="token punctuation">((</span> StartValue8 <span class="token operator">&amp;</span> CRC_CRC8_MSB <span class="token punctuation">)</span> <span class="token operator">==</span> CRC_CRC8_MSB<span class="token punctuation">)</span>
       ｛
-        StartValue8 =((uint8)((uint8)StartValue8 &lt;&lt; CRC_ONE_U)) ^ Polynomial_8bit;
+        StartValue8 <span class="token operator">=</span><span class="token punctuation">((</span>uint8<span class="token punctuation">)</span><span class="token punctuation">((</span>uint8<span class="token punctuation">)</span>StartValue8 <span class="token operator">&lt;&lt;</span> CRC_ONE_U<span class="token punctuation">))</span></span> ^ Polynomial_8bit<span class="token punctuation">;</span>
       ｝
-      else
+      <span class="token keyword">else</span>
      ｛
-        StartValue8 =(uint8)((uint8)StartValue8 &lt;&lt; CRC_ONE_U);
+        StartValue8 <span class="token operator">=</span><span class="token punctuation">(</span>uint8<span class="token punctuation">)</span><span class="token punctuation">((</span>uint8<span class="token punctuation">)</span>StartValue8 <span class="token operator">&lt;&lt;</span> CRC_ONE_U<span class="token punctuation">)</span><span class="token punctuation">;</span>
       ｝
 
     ｝
 
   ｝
-  return StartValue8;
+  <span class="token keyword">return</span> StartValue8<span class="token punctuation">;</span>
 ｝
 </code></pre>
 <h4 id="查表方式求CRC"><a href="#查表方式求CRC" class="headerlink" title="查表方式求CRC"></a>查表方式求CRC</h4><p>查表的目的是节省MCU计算CRC的时间，事先计算好0至255的CRC值存入数组（不同的POLY算出来的不一样）</p>
-<pre><code class="bash">static uint8 Crc_lCalculateCRC8Table
-(
+<pre class=" language-bash"><code class="language-bash">static uint8 Crc_lCalculateCRC8Table
+<span class="token punctuation">(</span>
   const uint8* const Crc_DataPtr,
   const uint32 Crc_Length,
   const uint8 Crc_StartValue8
-)
+<span class="token punctuation">)</span>
 ｛
-  uint32 LoopCounter ;
-  uint8 CompareData ;
-  uint8 StartValue8 = Crc_StartValue8;
+  uint32 LoopCounter <span class="token punctuation">;</span>
+  uint8 CompareData <span class="token punctuation">;</span>
+  uint8 StartValue8 <span class="token operator">=</span> Crc_StartValue8<span class="token punctuation">;</span>
 
-  StartValue8 = StartValue8 ^ CRC_CRC8_XOR_VALUE;
+  StartValue8 <span class="token operator">=</span> StartValue8 ^ CRC_CRC8_XOR_VALUE<span class="token punctuation">;</span>
 
-  for(LoopCounter = CRC_ZERO_U; LoopCounter &lt; Crc_Length;
-      LoopCounter++)
+  for<span class="token punctuation">(</span>LoopCounter <span class="token operator">=</span> CRC_ZERO_U<span class="token punctuation">;</span> LoopCounter <span class="token operator">&lt;</span> Crc_Length<span class="token punctuation">;</span>
+      LoopCounter++<span class="token punctuation">)</span>
   ｛
-    CompareData = Crc_DataPtr[LoopCounter] ^ StartValue8;
-    StartValue8 = Crc_Table8[CompareData] ^ (uint8)((uint16)((uint16)StartValue8 &lt;&lt; CRC_BYTELENGTH_U));
+    CompareData <span class="token operator">=</span> Crc_DataPtr<span class="token punctuation">[</span>LoopCounter<span class="token punctuation">]</span> ^ StartValue8<span class="token punctuation">;</span>
+    StartValue8 <span class="token operator">=</span> Crc_Table8<span class="token punctuation">[</span>CompareData<span class="token punctuation">]</span> ^ <span class="token punctuation">(</span>uint8<span class="token punctuation">)</span><span class="token variable"><span class="token punctuation">((</span>uint16<span class="token punctuation">)</span><span class="token punctuation">((</span>uint16<span class="token punctuation">)</span>StartValue8 <span class="token operator">&lt;&lt;</span> CRC_BYTELENGTH_U<span class="token punctuation">))</span></span><span class="token punctuation">;</span>
   ｝
-  StartValue8 = CRC_CRC8_XOR_VALUE ^ StartValue8;
-  return StartValue8;
+  StartValue8 <span class="token operator">=</span> CRC_CRC8_XOR_VALUE ^ StartValue8<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> StartValue8<span class="token punctuation">;</span>
 ｝
 </code></pre>
 
