@@ -3,18 +3,18 @@
   <title>何恒甫的博客</title>
   
   <subtitle> </subtitle>
-  <link href="http://gitee.com/hehengfu/atom.xml" rel="self"/>
+  <link href="http://github.com/hehengfu/atom.xml" rel="self"/>
   
-  <link href="http://gitee.com/hehengfu/"/>
+  <link href="http://github.com/hehengfu/"/>
   <updated>2022-08-09T14:31:47.349Z</updated>
-  <id>http://gitee.com/hehengfu/</id>
+  <id>http://github.com/hehengfu/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
     <title>git本地代码推送到gitee步骤</title>
-    <link href="http://gitee.com/hehengfu/2022/08/09/git%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81%E6%8E%A8%E9%80%81%E5%88%B0gitee%E6%AD%A5%E9%AA%A4/"/>
-    <id>http://gitee.com/hehengfu/2022/08/09/git%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81%E6%8E%A8%E9%80%81%E5%88%B0gitee%E6%AD%A5%E9%AA%A4/</id>
+    <link href="http://github.com/hehengfu/2022/08/09/git%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81%E6%8E%A8%E9%80%81%E5%88%B0gitee%E6%AD%A5%E9%AA%A4/"/>
+    <id>http://github.com/hehengfu/2022/08/09/git%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81%E6%8E%A8%E9%80%81%E5%88%B0gitee%E6%AD%A5%E9%AA%A4/</id>
     <published>2022-08-09T14:22:10.734Z</published>
     <updated>2022-08-09T14:31:47.349Z</updated>
     
@@ -35,17 +35,17 @@
     
     
     
-    <category term="git" scheme="http://gitee.com/hehengfu/categories/git/"/>
+    <category term="git" scheme="http://github.com/hehengfu/categories/git/"/>
     
     
-    <category term="git" scheme="http://gitee.com/hehengfu/tags/git/"/>
+    <category term="git" scheme="http://github.com/hehengfu/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>ETAS生成RTE时需使用的命令</title>
-    <link href="http://gitee.com/hehengfu/2022/08/07/ETAS%E7%94%9F%E6%88%90RTE%E6%97%B6%E9%9C%80%E4%BD%BF%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/"/>
-    <id>http://gitee.com/hehengfu/2022/08/07/ETAS%E7%94%9F%E6%88%90RTE%E6%97%B6%E9%9C%80%E4%BD%BF%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/</id>
+    <link href="http://github.com/hehengfu/2022/08/07/ETAS%E7%94%9F%E6%88%90RTE%E6%97%B6%E9%9C%80%E4%BD%BF%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/"/>
+    <id>http://github.com/hehengfu/2022/08/07/ETAS%E7%94%9F%E6%88%90RTE%E6%97%B6%E9%9C%80%E4%BD%BF%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/</id>
     <published>2022-08-07T13:29:04.602Z</published>
     <updated>2022-08-07T13:29:57.608Z</updated>
     
@@ -59,17 +59,17 @@
     
     
     
-    <category term="ETAS" scheme="http://gitee.com/hehengfu/categories/ETAS/"/>
+    <category term="ETAS" scheme="http://github.com/hehengfu/categories/ETAS/"/>
     
     
-    <category term="ETAS" scheme="http://gitee.com/hehengfu/tags/ETAS/"/>
+    <category term="ETAS" scheme="http://github.com/hehengfu/tags/ETAS/"/>
     
   </entry>
   
   <entry>
     <title>CRC8的校验原理及代码实现</title>
-    <link href="http://gitee.com/hehengfu/2021/12/19/CRC8%E7%9A%84%E6%A0%A1%E9%AA%8C%E5%8E%9F%E7%90%86%E5%8F%8A%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/"/>
-    <id>http://gitee.com/hehengfu/2021/12/19/CRC8%E7%9A%84%E6%A0%A1%E9%AA%8C%E5%8E%9F%E7%90%86%E5%8F%8A%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/</id>
+    <link href="http://github.com/hehengfu/2021/12/19/CRC8%E7%9A%84%E6%A0%A1%E9%AA%8C%E5%8E%9F%E7%90%86%E5%8F%8A%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://github.com/hehengfu/2021/12/19/CRC8%E7%9A%84%E6%A0%A1%E9%AA%8C%E5%8E%9F%E7%90%86%E5%8F%8A%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/</id>
     <published>2021-12-19T13:15:47.432Z</published>
     <updated>2022-08-07T11:18:06.868Z</updated>
     
@@ -83,17 +83,17 @@
     
     
     
-    <category term="CRC" scheme="http://gitee.com/hehengfu/categories/CRC/"/>
+    <category term="CRC" scheme="http://github.com/hehengfu/categories/CRC/"/>
     
     
-    <category term="CRC" scheme="http://gitee.com/hehengfu/tags/CRC/"/>
+    <category term="CRC" scheme="http://github.com/hehengfu/tags/CRC/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://gitee.com/hehengfu/2021/12/12/hello-world/"/>
-    <id>http://gitee.com/hehengfu/2021/12/12/hello-world/</id>
+    <link href="http://github.com/hehengfu/2021/12/12/hello-world/"/>
+    <id>http://github.com/hehengfu/2021/12/12/hello-world/</id>
     <published>2021-12-12T04:10:29.941Z</published>
     <updated>2021-12-12T05:38:50.861Z</updated>
     
