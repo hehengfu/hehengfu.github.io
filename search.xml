@@ -124,36 +124,6 @@ static uint8 Crc_lCommonCalculateCRC8Runtime
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/blog/2021/12/12/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/zh-cn/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/zh-cn/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/zh-cn/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span>
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy
-</code></pre>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>ETAS生成RTE时需使用的命令</title>
-    <url>/blog/2022/08/07/ETAS%E7%94%9F%E6%88%90RTE%E6%97%B6%E9%9C%80%E4%BD%BF%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h3 id="ETAS生成RTE时需使用的命令"><a href="#ETAS生成RTE时需使用的命令" class="headerlink" title="ETAS生成RTE时需使用的命令"></a>ETAS生成RTE时需使用的命令</h3><p>-nts -ur=2 –os-define-osenv=RTAOS40 –exclusive-area-optimization=disable –os-output-param=changed –use-partition-sections=on –client-server-global-optimization=off –deviate-bsw-any-partition=1 –deviate-split-swci-support=1 –samples=memmap </p>
-]]></content>
-      <categories>
-        <category>ETAS</category>
-      </categories>
-      <tags>
-        <tag>ETAS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>git本地代码推送到gitee步骤</title>
     <url>/blog/2022/08/09/git%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81%E6%8E%A8%E9%80%81%E5%88%B0gitee%E6%AD%A5%E9%AA%A4/</url>
     <content><![CDATA[<ol>
@@ -186,6 +156,36 @@ static uint8 Crc_lCommonCalculateCRC8Runtime
       </categories>
       <tags>
         <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/blog/2021/12/12/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/zh-cn/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/zh-cn/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/zh-cn/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span>
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy
+</code></pre>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>ETAS生成RTE时需使用的命令</title>
+    <url>/blog/2022/08/07/ETAS%E7%94%9F%E6%88%90RTE%E6%97%B6%E9%9C%80%E4%BD%BF%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h3 id="ETAS生成RTE时需使用的命令"><a href="#ETAS生成RTE时需使用的命令" class="headerlink" title="ETAS生成RTE时需使用的命令"></a>ETAS生成RTE时需使用的命令</h3><p>-nts -ur=2 –os-define-osenv=RTAOS40 –exclusive-area-optimization=disable –os-output-param=changed –use-partition-sections=on –client-server-global-optimization=off –deviate-bsw-any-partition=1 –deviate-split-swci-support=1 –samples=memmap </p>
+]]></content>
+      <categories>
+        <category>ETAS</category>
+      </categories>
+      <tags>
+        <tag>ETAS</tag>
       </tags>
   </entry>
 </search>
